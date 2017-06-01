@@ -1,6 +1,6 @@
 {
   "name": "jailbreak-react-scripts",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "bin": "bin/jailbreak-react-scripts.js",
   "main": "index.js",
   "peerDependencies": {
