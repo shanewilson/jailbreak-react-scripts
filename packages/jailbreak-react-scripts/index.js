@@ -15,7 +15,8 @@ function findRuleByLoader(rules, loader) {
 function jailbreakBabel(config) {
   var rule = findRuleByLoader(config.module.rules, "babel-loader");
   Object.assign(rule.options, {
-    babelrc: true
+    babelrc: true,
+    presets: []
   });
   console.log(
     chalk.green("success") + " " + chalk.white("Jailbreaking Babel!")
