@@ -9,6 +9,6 @@ require("../config/env");
 const config = require("react-scripts/config/webpack.config.prod");
 if (process.env.JAILBREAK_BABEL) jailbreak.jailbreakBabel(config);
 if (process.env.JAILBREAK_ESLINT) jailbreak.jailbreakEslint(config);
-jailbreak.jailbreakWebpack(config, "webpack.jailbreak.prod.js");
+jailbreak.jailbreakWebpack(config);
 
 require("react-scripts/scripts/build");

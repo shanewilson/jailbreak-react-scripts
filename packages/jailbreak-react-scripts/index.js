@@ -35,7 +35,9 @@ function jailbreakEslint(config) {
   );
 }
 
-function jailbreakWebpack(config, filename) {
+function jailbreakWebpack(config) {
+  chalk.green("?");
+  var filename = "webpack.jailbreak.js";
   var path = require("path");
 
   var fs = require("fs");
@@ -51,6 +53,8 @@ function jailbreakWebpack(config, filename) {
         " " +
         chalk.white("Using modified webpack config!")
     );
+  } else {
+    chalk.green("blah");
   }
 }
 
