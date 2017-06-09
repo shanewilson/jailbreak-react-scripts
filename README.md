@@ -32,7 +32,7 @@
 
 3. Update your `package.json` to use `jailbreak-react-scripts` in your npm scripts in place of `react-scripts`
 
-	```
+	```diff
 	// package.json
 	scripts: {
 	-  start: react-scripts start,
