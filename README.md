@@ -55,7 +55,7 @@
 
 ### Advanced Configuration
 
-In addtion to using `rc` files to customize your CRA you can directly modify the webpack configuration as well by adding `webpack.jailbreak.js` to your project root.
+Besides using `rc` files to customize your CRA you can change the webpack configuration as well by adding `webpack.jailbreak.js` to your project root.
 
 ```
 // webpack.jailbreak.js`
@@ -76,7 +76,7 @@ module.exports = function jailbreakWebpackConfig(config) {
 
 ```
 
-Running `start` or `build` should now indicate that you are using a modified webpack config:
+Running `start` or `build` should now show that you are using a modified webpack config:
 
 ```
 ❯ yarn build
@@ -102,7 +102,7 @@ The easiest way to intergrate `relay` into the CRA workflow is to add it to your
 
 ### Adding Prettier to CRA
 
-The easiest way to intergrate `prettier` into the CRA workflow is to add it to your `.eslintrc`
+The easiest way to integrate `prettier` into the CRA workflow is to add it to your `.eslintrc`
 
 ```
 // .eslintrc
