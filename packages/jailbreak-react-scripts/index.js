@@ -1,7 +1,7 @@
 var chalk = require("chalk");
 
 function getScriptName() {
-  return process.env.JAILBREAK_SCRIPT_NAME || "react-scripts";
+  return process.env.JAILBREAK_SCRIPTS || "react-scripts";
 }
 
 function matchLoader(rule, loader) {
