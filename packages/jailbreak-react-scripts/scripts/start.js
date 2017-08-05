@@ -6,9 +6,10 @@ process.env.NODE_ENV = "development";
 // Ensure environment variables are read.
 require("../config/env");
 
-const config = require("react-scripts/config/webpack.config.dev");
-if (process.env.JAILBREAK_BABEL) jailbreak.jailbreakBabel(config);
-if (process.env.JAILBREAK_ESLINT) jailbreak.jailbreakEslint(config);
+const config = require(jailbreak.getScriptName() +
+  "/config/webpack.config.dev");
+if (process.env.JAILBREAK_BABEL === "yes") jailbreak.jailbreakBabel(config);
+if (process.env.JAILBREAK_ESLINT === "yes") jailbreak.jailbreakEslint(config);
 jailbreak.jailbreakWebpack(config);
 
-require("react-scripts/scripts/start");
+require(jailbreak.getScriptName() + "/scripts/start");

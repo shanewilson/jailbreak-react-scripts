@@ -5,6 +5,7 @@
 - [Adding Relay to CRA](#adding-relay-to-cra)
 - [Adding Prettier to CRA](#adding-prettier-to-cra)
 - [Disable Auto Jailbreak](#disable-auto-jailbreak)
+- [Using with Custom React Scripts](#using-with-custom-react-scripts)
 
 ### Getting Started
 
@@ -117,12 +118,21 @@ The easiest way to integrate `prettier` into the CRA workflow is to add it to yo
 
 ### Disable Auto Jailbreak
 
-If you don't want CRA to use your `.babelrc` or `.eslintrc` settings you can disable that behavior setting ENV flags either on the command line or in an `.env` file.
+If you don't want CRA to use your `.babelrc` or `.eslintrc` settings you can disable that behavior setting ENV flags either on the command line or in an `.env` file. Any of `no`, `off`, `false` or `0` will disable the jailbreak.
 
 Disable eslint and babel jailbreaking:
 
 ```
 // .env
-JAILBREAK_ESLINT=
-JAILBREAK_BABEL=
+JAILBREAK_ESLINT=no
+JAILBREAK_BABEL=no
+```
+
+### Using with Custom React Scripts
+
+This can also be used with modified `react-scripts` are installed under a different package name (ex. [reason-scripts](https://github.com/rrdelaney/reason-scripts))
+
+```
+// .env
+JAILBREAK_SCRIPT_NAME=reason-script
 ```

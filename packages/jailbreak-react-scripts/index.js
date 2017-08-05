@@ -1,5 +1,9 @@
 var chalk = require("chalk");
 
+function getScriptName() {
+  return process.env.JAILBREAK_SCRIPT_NAME || "react-scripts";
+}
+
 function matchLoader(rule, loader) {
   return rule.use
     ? findRuleByLoader(rule.use, loader)
@@ -36,12 +40,11 @@ function jailbreakEslint(config) {
 }
 
 function jailbreakWebpack(config) {
-  chalk.green("?");
   var filename = "webpack.jailbreak.js";
   var path = require("path");
 
   var fs = require("fs");
-  var appPath = require("react-scripts/config/paths").appPath;
+  var appPath = require(getScriptName() + "/config/paths").appPath;
   var webpackConfigPath = path.resolve(appPath, filename);
   if (fs.existsSync(webpackConfigPath)) {
     console.log(
@@ -53,8 +56,6 @@ function jailbreakWebpack(config) {
         " " +
         chalk.white("Using modified webpack config!")
     );
-  } else {
-    chalk.green("blah");
   }
 }
 
@@ -63,5 +64,6 @@ module.exports = {
   findRuleByLoader: findRuleByLoader,
   jailbreakBabel: jailbreakBabel,
   jailbreakEslint: jailbreakEslint,
-  jailbreakWebpack: jailbreakWebpack
+  jailbreakWebpack: jailbreakWebpack,
+  getScriptName: getScriptName
 };

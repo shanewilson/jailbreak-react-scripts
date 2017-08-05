@@ -5,7 +5,6 @@
   "main": "index.js",
   "peerDependencies": {
     "chalk": "*",
-    "react-scripts": "*",
     "react-dev-utils": "*"
   }
 }
