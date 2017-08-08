@@ -135,13 +135,13 @@ This can also be used with modified `react-scripts` are installed under a differ
 Note that this cannot be done using a `.env` file.
 
 ```diff
-	// package.json
-	scripts: {
-	-  start: jailbreak-react-scripts start,
-	-  build: jailbreak-react-scripts build,
-	+  start: JAILBREAK_SCRIPTS=reason-scripts jailbreak-react-scripts start,
-	+  build: JAILBREAK_SCRIPTS=reason-scripts jailbreak-react-scripts build,
-	}
+// package.json
+scripts: {
+-  start: jailbreak-react-scripts start,
+-  build: jailbreak-react-scripts build,
++  start: JAILBREAK_SCRIPTS=reason-scripts jailbreak-react-scripts start,
++  build: JAILBREAK_SCRIPTS=reason-scripts jailbreak-react-scripts build,
+}
 ```
 
 
