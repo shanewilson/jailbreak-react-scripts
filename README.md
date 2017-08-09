@@ -144,4 +144,20 @@ scripts: {
 }
 ```
 
+Example: Have Bucklescript output ES Modules rather than CommonJS
 
+```js
+// webpack.jailbreak.js
+const jailbreak = require('jailbreak-react-scripts')
+
+module.exports = function jailbreakWebpackConfig(config) {
+  const bsRule = jailbreak.findRuleByLoader(config.module.rules, 'bs-loader')
+  const bsLoader = jailbreak.findRuleByLoader(bsRule.use, 'bs-loader')
+
+  Object.assign(bsLoader, {
+    options: {
+      module: 'es6'
+    }
+  });
+};
+```
