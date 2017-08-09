@@ -17,14 +17,14 @@
 
 2. Add `.babelrc` and `.eslintrc` to your project root
 
-	```
+	```js
 	// .babelrc
 	{
 	  preset: ['react-app']
 	}
 	```
 
-	```
+	```js
 	// .eslintrc
 	{
 	  "extends": ["react-app"]
@@ -58,8 +58,8 @@
 
 Besides using `rc` files to customize your CRA you can change the webpack configuration as well by adding `webpack.jailbreak.js` to your project root.
 
-```
-// webpack.jailbreak.js`
+```js
+// webpack.jailbreak.js
 const merge = require('webpack-merge');
 
 module.exports = function jailbreakWebpackConfig(config) {
@@ -94,7 +94,7 @@ Creating an optimized production build...
 
 The easiest way to intergrate `relay` into the CRA workflow is to add it to your `.babelrc`
 
-```
+```js
 {
 	"preset": ["react-app"]
 	"plugins": ["relay"]
@@ -105,7 +105,7 @@ The easiest way to intergrate `relay` into the CRA workflow is to add it to your
 
 The easiest way to integrate `prettier` into the CRA workflow is to add it to your `.eslintrc`
 
-```
+```js
 // .eslintrc
 {
 	"extends": ["react-app", "prettier"],
