@@ -13,7 +13,11 @@ function matchLoader(rule, loader) {
     return findRuleByLoader(rule.oneOf, loader);
   }
 
-  return rule.loader.indexOf(loader) !== -1;
+  if (rule.loader) {
+    return rule.loader.indexOf(loader) !== -1;
+  }
+  // support use: [ require.resolve('style-loader'),
+  return rule.indexOf(loader) !== -1;
 }
 
 function findRuleByLoader(rules, loader) {
