@@ -1,5 +1,5 @@
 {
-  "version": "0.2.1",
+  "version": "0.3.0",
   "private": true,
   "devDependencies": {
     "@knit/knit": "0.6.1",
