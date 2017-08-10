@@ -11,15 +11,20 @@
 /* Copied directly from react-scripts to keep the cli experience the same */
 
 const spawn = require("react-dev-utils/crossSpawn");
-const script = process.argv[2];
-const args = process.argv.slice(3);
+const args = process.argv.slice(2);
+
+const scriptIndex = args.findIndex(x => x === "build" || x === "start");
+const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
+const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
 switch (script) {
   case "build":
   case "start": {
     const result = spawn.sync(
       "node",
-      [require.resolve("../scripts/" + script)].concat(args),
+      nodeArgs
+        .concat(require.resolve("../scripts/" + script))
+        .concat(args.slice(scriptIndex + 1)),
       { stdio: "inherit" }
     );
     if (result.signal) {

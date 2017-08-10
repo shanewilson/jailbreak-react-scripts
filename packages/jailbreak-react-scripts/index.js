@@ -5,9 +5,15 @@ function getScriptName() {
 }
 
 function matchLoader(rule, loader) {
-  return rule.use
-    ? findRuleByLoader(rule.use, loader)
-    : rule.loader.indexOf(loader) !== -1;
+  if (rule.use) {
+    return findRuleByLoader(rule.use, loader);
+  }
+  // support react-scripts@1.0.11 and webpack 3
+  if (rule.oneOf) {
+    return findRuleByLoader(rule.oneOf, loader);
+  }
+
+  return rule.loader.indexOf(loader) !== -1;
 }
 
 function findRuleByLoader(rules, loader) {
@@ -18,6 +24,11 @@ function findRuleByLoader(rules, loader) {
 
 function jailbreakBabel(config) {
   var rule = findRuleByLoader(config.module.rules, "babel-loader");
+  // support react-scripts@1.0.11 and webpack 3
+  if (rule.oneOf) {
+    rule = findRuleByLoader(rule.oneOf, "babel-loader");
+  }
+
   Object.assign(rule.options, {
     babelrc: true,
     presets: []
